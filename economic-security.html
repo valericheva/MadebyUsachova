@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валерія Усачова - Персональний сайт</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1, h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-section {
+            margin: 2rem 0;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .threat-card, .recommendation-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border-left: 5px solid #dc3545;
+            transition: transform 0.3s ease;
+        }
+
+        .recommendation-card {
+            border-left-color: #28a745;
+        }
+
+        .threat-card:hover, .recommendation-card:hover {
+            transform: translateX(5px);
+        }
+
+        .threat-number, .rec-number {
+            display: inline-block;
+            background: #dc3545;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        .rec-number {
+            background: #28a745;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.4rem; }
+            .info-grid { grid-template-columns: 1fr; }
+            nav ul { gap: 1rem; padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPage('about')" class="active">Про мене</a></li>
+            <li><a href="#" onclick="showPage('resume')">Резюме</a></li>
+            <li><a href="#" onclick="showPage('analysis')">Аналітичний звіт</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Page 1: About -->
+        <div id="about" class="page active">
+            <div class="card">
+                <h1>Валерія Усачова</h1>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Факультет:</strong>
+                        Міжнародної торгівлі та права
+                    </div>
+                    <div class="info-item">
+                        <strong>Група:</strong>
+                        1-7
+                    </div>
+                    <div class="info-item">
+                        <strong>Дисципліна:</strong>
+                        Міжнародні відносини та економічна дипломатія
+                    </div>
+                    <div class="info-item">
+                        <strong>Email:</strong>
+                        valeri.cheva12@gmail.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Вітаю на моєму сайті!</h2>
+                <p style="margin-top: 1rem; font-size: 1.1rem; line-height: 1.8;">
+                    Я студентка факультету міжнародної торгівлі та права, яка активно цікавиться міжнародними 
+                    відносинами та економічною дипломатією. Цей сайт створено в рамках навчальної дисципліни 
+                    та містить моє резюме, а також аналітичний звіт про економічну безпеку держави.
+                </p>
+            </div>
+        </div>
+
+        <!-- Page 2: Resume -->
+        <div id="resume" class="page">
+            <div class="card">
+                <h1>Резюме</h1>
+                
+                <div class="resume-section">
+                    <h2>Особиста інформація</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong>Дата народження:</strong>
+                            14 серпня 2008
+                        </div>
+                        <div class="info-item">
+                            <strong>Місце народження:</strong>
+                            Харків, Україна
+                        </div>
+                        <div class="info-item">
+                            <strong>Телефон:</strong>
+                            (+380) 0505611028
+                        </div>
+                        <div class="info-item">
+                            <strong>Адреса:</strong>
+                            вул. Мілютенка, 6, Київ, 02166
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h2>Освіта</h2>
+                    <div class="info-item">
+                        <strong>1 вересня 2014 - 30 травня 2025</strong>
+                        <p>Середня освіта - Харківська спеціалізована школа I-III ступенів №93</p>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h2>Досвід роботи</h2>
+                    <div class="info-item">
+                        <strong>БЛАГОДІЙНИЙ ФОНД "НЕЗЛАМНИЙ ХАРКІВ"</strong>
+                        <p><strong>Волонтер</strong> - 12 жовтня 2024 - 5 червня 2025</p>
+                        <p>Допомога людям, які втратили домівки</p>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h2>Мовні навички</h2>
+                    <table>
+                        <tr>
+                            <th>Мова</th>
+                            <th>Рівень</th>
+                        </tr>
+                        <tr>
+                            <td>Російська (рідна)</td>
+                            <td>Вільне володіння</td>
+                        </tr>
+                        <tr>
+                            <td>Англійська</td>
+                            <td>B1 (незалежний користувач)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="resume-section">
+                    <h2>Навички</h2>
+                    <div class="skills">
+                        <span class="skill-tag">Microsoft Office</span>
+                        <span class="skill-tag">Microsoft Word</span>
+                        <span class="skill-tag">Microsoft PowerPoint</span>
+                        <span class="skill-tag">Social Media</span>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h2>Хобі та інтереси</h2>
+                    <p>Фітнес, спів, в'язання</p>
+                </div>
+
+                <div class="resume-section">
+                    <h2>Громадська діяльність</h2>
+                    <div class="info-item">
+                        <strong>25 грудня 2019 - 22 червня 2025</strong>
+                        <p>Будинок культури, Харків - Спів</p>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h2>Творчі роботи</h2>
+                    <div class="info-item">
+                        <strong>12 червня 2025 - 22 червня 2025</strong>
+                        <p><strong>Концерт</strong></p>
+                        <p>Створення благодійного концерту для дітей та їхніх батьків, участь у співі та ведення заходу</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: Analysis -->
+        <div id="analysis" class="page">
+            <div class="card">
+                <h1>Аналітичний звіт: Економічна безпека України</h1>
+                
+                <div class="highlight">
+                    <strong>Аналіз проведено на основі статистичних даних за 2014-2024 роки</strong>
+                </div>
+
+                <h2>5 Основних загроз економічній безпеці України</h2>
+
+                <div class="threat-card">
+                    <h3><span class="threat-number">1</span>Скорочення врожайності зернових культур</h3>
+                    <p><strong>Опис:</strong> За період 2014-2023 рр. спостерігається коливання врожайності основних зернових та зернобобових культур з тенденцією до зниження. Мінімум становив 7430,10 ц з 1 га, максимум - 8614,20 ц з 1 га, при середньому значенні 8095,13 ц з 1 га.</p>
+                    <p><strong>Наслідки:</strong> Погіршення продовольчої безпеки, зниження експортного потенціалу аграрного сектору, втрата конкурентоспроможності на світових ринках.</p>
+                </div>
+
+                <div class="threat-card">
+                    <h3><span class="threat-number">2</span>Зниження обсягу державного боргу відносно ВВП</h3>
+                    <p><strong>Опис:</strong> Відношення обсягу державного боргу та гарантованого державою боргу до ВВП скоротилося з 196,64% до 138,64% у період 2014-2023 рр., демонструючи нестабільну динаміку.</p>
+                    <p><strong>Наслідки:</strong> Хоча зниження боргового навантаження є позитивним, високий рівень боргу обмежує фіскальний простір для інвестицій у розвиток.</p>
+                </div>
+
+                <div class="threat-card">
+                    <h3><span class="threat-number">3</span>Зростання нерівності доходів населення</h3>
+                    <p><strong>Опис:</strong> Співвідношення загальних доходів 10% найбільш та найменш забезпеченого населення (децильний коефіцієнт) коливається в діапазоні 7,78-8,76 з піком у 2021 році (8,76).</p>
+                    <p><strong>Наслідки:</strong> Посилення соціальної нестабільності, зниження купівельної спроможності населення, загроза соціальній згуртованості.</p>
+                </div>
+
+                <div class="threat-card">
+                    <h3><span class="threat-number">4</span>Зниження виробництва зерна на одну особу</h3>
+                    <p><strong>Опис:</strong> Виробництво зерна на одну особу знизилося з 0,38 тонн до 0,28 тонн за період 2015-2024 рр., демонструючи негативну тенденцію.</p>
+                    <p><strong>Наслідки:</strong> Погіршення продовольчої безпеки на душу населення, зниження експортного потенціалу, залежність від імпорту продовольства.</p>
+                </div>
+
+                <div class="threat-card">
+                    <h3><span class="threat-number">5</span>Негативне сальдо поточного рахунку платіжного балансу</h3>
+                    <p><strong>Опис:</strong> Сальдо поточного рахунку платіжного балансу є від'ємним протягом усього періоду 2015-2024 рр., в середньому -3,24% ВВП, з найгіршим показником -5,50% у 2015 році.</p>
+                    <p><strong>Наслідки:</strong> Залежність від зовнішнього фінансування, ризик валютних криз, обмеження можливостей для економічного зростання.</p>
+                </div>
+
+                <h2 style="margin-top: 3rem;">5 Рекомендацій для покращення економічної безпеки</h2>
+
+                <div class="recommendation-card">
+                    <h3><span class="rec-number">1</span>Модернізація аграрного сектору</h3>
+                    <p><strong>Дії:</strong></p>
+                    <ul style="margin-left: 3rem; margin-top: 0.5rem;">
+                        <li>Впровадження сучасних технологій точного землеробства</li>
+                        <li>Інвестиції в іригаційні системи для зменшення залежності від погодних умов</li>
+                        <li>Розвиток програм підтримки фермерів та кредитування аграрного сектору</li>
+                        <li>Покращення селекції та використання стійких до посухи сортів</li>
+                    </ul>
+                    <p><strong>Очікуваний ефект:</strong> Збільшення врожайності на 15-20%, стабілізація виробництва зерна.</p>
+                </div>
+
+                <div class="recommendation-card">
+                    <h3><span class="rec-number">2</span>Оптимізація управління державним боргом</h3>
+                    <p><strong>Дії:</strong></p>
+                    <ul style="margin-left: 3rem; margin-top: 0.5rem;">
+                        <li>Розробка середньострокової стратегії управління боргом</li>
+                        <li>Рефінансування дорогих позик на більш вигідних умовах</li>
+                        <li>Диверсифікація джерел запозичень</li>
+                        <li>Збільшення частки внутрішніх запозичень</li>
+                    </ul>
+                    <p><strong>Очікуваний ефект:</strong> Зниження вартості обслуговування боргу, створення фіскального простору для інвестицій.</p>
+                </div>
+
+                <div class="recommendation-card">
+                    <h3><span class="rec-number">3</span>Політика скорочення нерівності доходів</h3>
+                    <p><strong>Дії:</strong></p>
+                    <ul style="margin-left: 3rem; margin-top: 0.5rem;">
+                        <li>Прогресивна податкова реформа з підвищенням податків на високі доходи</li>
+                        <li>Збільшення мінімальної заробітної плати з урахуванням інфляції</li>
+                        <li>Розширення програм соціальної підтримки вразливих груп населення</li>
+                        <li>Інвестиції в освіту та перекваліфікацію робочої сили</li>
+                    </ul>
+                    <p><strong>Очікуваний ефект:</strong> Зниження децильного коефіцієнта до 6-7, покращення соціальної стабільності.</p>
+                </div>
+
+                <div class="recommendation-card">
+                    <h3><span class="rec-number">4</span>Стимулювання експортного потенціалу</h3>
+                    <p><strong>Дії:</strong></p>
+                    <ul style="margin-left: 3rem; margin-top: 0.5rem;">
+                        <li>Диверсифікація експортних ринків та товарної структури</li>
+                        <li>Розвиток переробної промисловості для експорту продукції з доданою вартістю</li>
+                        <li>Укладення нових торговельних угод та використання переваг існуючих</li>
+                        <li>Підтримка експортно-орієнтованих підприємств через державні програми</li>
+                    </ul>
+                    <p><strong>Очікуваний ефект:</strong> Покращення сальдо поточного рахунку, збільшення валютних надходжень.</p>
+                </div>
+
+                <div class="recommendation-card">
+                    <h3><span class="rec-number">5</span>Залучення прямих іноземних інвестицій</h3>
+                    <p><strong>Дії:</strong></p>
+                    <ul style="margin-left: 3rem; margin-top: 0.5rem;">
+                        <li>Покращення інвестиційного клімату через судову реформу та боротьбу з корупцією</li>
+                        <li>Створення спеціальних економічних зон з податковими пільгами</li>
+                        <li>Спрощення процедур реєстрації та ведення бізнесу</li>
+                        <li>Захист прав інвесторів через міжнародні арбітражні механізми</li>
+                    </ul>
+                    <p><strong>Очікуваний ефект:</strong> Збільшення обсягу ПІІ на 30-40%, покращення торгового балансу.</p>
+                </div>
+
+                <div class="highlight" style="margin-top: 2rem;">
+                    <h3>Висновок</h3>
+                    <p>Економічна безпека України потребує комплексного підходу, що включає модернізацію аграрного сектору, 
+                    оптимізацію боргової політики, скорочення нерівності, стимулювання експорту та залучення інвестицій. 
+                    Реалізація запропонованих рекомендацій сприятиме стабілізації економіки та підвищенню рівня життя населення.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            const links = document.querySelectorAll('nav a');
+            
+            pages.forEach(p => p.classList.remove('active'));
+            links.forEach(l => l.classList.remove('active'));
+            
+            document.getElementById(pageId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
